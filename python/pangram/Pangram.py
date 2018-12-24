@@ -1,14 +1,15 @@
+from string import ascii_lowercase
+
 def pan(X):
 	set1=set(X)
-	if (len(set1)==26):
-		print("String is a pangram")
-	else:
-		print("String is not a pangram")
+	alpha=set(ascii_lowercase)
+	print(True if(alpha.issubset(X)) else False)
+
+
 X=input("Enter string \n")
-X=X.replace(" ", "")
 X=X.lower()
-if all(x.isalpha() for x in X):
+if all(ord(c) < 128 for c in X):
 	pan(X)
 else:
-	print("String should not contain special characters")
+	print("False String")
 
